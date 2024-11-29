@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contador de Ponto de Crochê</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Botões de seleção de idioma no topo, à esquerda -->
+    <div class="language-buttons">
+      <button id="ptButton" class="lang-button" onclick="changeLanguage('pt')">
+        <img src="brazil.png" alt="" />
+      </button>
+      <button id="enButton" class="lang-button" onclick="changeLanguage('en')">
+        <img src="usa.png" alt="" />
+      </button>
+      <button id="esButton" class="lang-button" onclick="changeLanguage('es')">
+        <img src="spain.png" alt="" />
+      </button>
+    </div>
+
+    <div class="container">
+      <h1 id="title">Crochet Stitch Counter</h1>
+      <div id="counter" class="counter">0</div>
+
+      <div id="sequence" class="sequence">Sequence:</div>
+      <button id="roundButton" class="round-button">+</button>
+      <button id="nextButton" class="next-button">Next</button>
+      <button id="resetButton" class="reset-button">Reset</button>
+    </div>
+
+    <footer>
+      <p><a href="guide.html" id="guide-message"></a></p>
+      <p>
+        <a href="contact.html" id="footer-message">
+          💬 Leave me a message. Feedback, suggestions.
+        </a>
+      </p>
+      <p>
+        <a href="https://ko-fi.com/annabethdev" id="footer-coffee"
+          >☕ Buy me a Coffee</a
+        >
+      </p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

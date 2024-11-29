@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #282a36;
+  color: #f8f8f2;
+  overflow: hidden;
+  flex-direction: column;
+  padding-bottom: 60px; /* Para garantir que o footer não sobreponha o conteúdo */
+}
+/* Botões de seleção de idioma sem fundo e com apenas a imagem */
+.lang-button {
+  background: none; /* Remove qualquer fundo */
+  color: transparent; /* Remover texto, pois não será necessário */
+  border: none; /* Remove a borda */
+  padding: 0; /* Remove o espaçamento extra */
+  cursor: pointer; /* Mantém o cursor como mãozinha */
+  margin-right: 10px; /* Espaçamento entre os botões */
+  margin-bottom: 10px;
+}
+
+.lang-button img {
+  width: 30px; /* Define o tamanho da imagem */
+  height: auto; /* Mantém a proporção da imagem */
+}
+
+.lang-button:hover img {
+  opacity: 0.8; /* Reduz a opacidade da imagem quando o mouse passa sobre */
+}
+
+.lang-button:active img {
+  opacity: 0.6; /* Reduz mais a opacidade quando o botão é pressionado */
+}
+
+.container {
+  text-align: center;
+  background-color: #1e1e1e;
+  border-radius: 10px;
+  padding: 40px 40px;
+  width: 300px;
+  max-width: 90%;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  z-index: 1; /* Garante que o conteúdo fique acima do footer */
+}
+
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#counter {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 20px;
+  background-color: #8e44ad;
+  border-radius: 8px;
+  padding: 20px;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+#sequence {
+  font-size: 1rem;
+  margin-top: 15px;
+  color: white;
+  background-color: #333;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+button {
+  background-color: #bd93f9;
+  color: white;
+  font-size: 1rem;
+  padding: 10px 25px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 650;
+}
+
+.reset-button {
+  background-color: #ae445a;
+}
+
+button:hover {
+  background-color: #8e44ad;
+  transform: scale(1.05);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+footer {
+  background-color: #333;
+  color: #ddd;
+  padding: 20px 0;
+  text-align: center;
+  width: 100%;
+  box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin-top: 30px; /* Garante que o footer não sobreponha o conteúdo */
+}
+
+footer a {
+  color: #bd93f9;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+footer a:hover {
+  color: #8e44ad;
+}
+
+footer p {
+  margin: 10px 0;
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 80%;
+    padding: 30px 20px;
+  }
+
+  h1 {
+    font-size: 1.3rem;
+  }
+
+  #counter {
+    font-size: 1.8rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  footer {
+    padding: 15px 0;
+  }
+}
