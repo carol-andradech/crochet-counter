@@ -1,7 +1,7 @@
-let count = 0; // Contagem atual
-let sequence = []; // Sequência de contagens anteriores
+let count = 0; // Current count
+let sequence = []; // Sequence of previous counts
 
-// Traduções para PT, EN, ES
+// Translations for PT, EN, ES
 const translations = {
   pt: {
     title: "Contador de Ponto de Crochê",
@@ -10,7 +10,7 @@ const translations = {
     resetButton: "Reiniciar",
     footerMessage: "💬 Deixe-me uma mensagem. Feedback, sugestões.",
     footerCoffee: "☕ Compre-me um café",
-    guideMessage: "❔ Como usar?", // Tradução do link de guia
+    guideMessage: "❔ Como usar?", // Translation for the guide link
   },
   en: {
     title: "Crochet Stitch Counter",
@@ -19,7 +19,7 @@ const translations = {
     resetButton: "Reset",
     footerMessage: "💬 Leave me a message. Feedback, suggestions.",
     footerCoffee: "☕ Buy me a Coffee",
-    guideMessage: "❔ How to use?", // Tradução do link de guia
+    guideMessage: "❔ How to use?", // Translation for the guide link
   },
   es: {
     title: "Contador de Puntos de Crochet",
@@ -28,66 +28,76 @@ const translations = {
     resetButton: "Reiniciar",
     footerMessage: "💬 Déjame un mensaje. Comentarios, sugerencias.",
     footerCoffee: "☕ Cómprame un café",
-    guideMessage: "❔ Cómo usar?", // Tradução do link de guia
+    guideMessage: "❔ Cómo usar?", // Translation for the guide link
   },
 };
 
-// Definir idioma padrão como inglês
+// Set default language to English
 let lang = "en";
 
-// Função para aumentar a contagem
+// Function to increment the count
 function incrementCount() {
   count++;
-  console.log(`Contagem aumentada: ${count}`);
+  console.log(`Count increased: ${count}`);
   document.getElementById("counter").textContent = count;
 }
 
-// Função para reiniciar a contagem e limpar a sequência
+// Function to reset the count and clear the sequence
 function resetCount() {
   count = 0;
   sequence = [];
-  console.log("Contagem e sequência reiniciadas.");
+  console.log("Count and sequence reset.");
   document.getElementById("counter").textContent = count;
   document.getElementById("sequence").textContent =
     translations[lang].sequenceLabel + " " + sequence.join(", ");
 }
 
-// Função para adicionar a contagem à sequência e zerar
+// Function to add the current count to the sequence and reset count
 function nextSequence() {
-  console.log(`Clicou no botão 'Próxima'. Contagem ${count}`);
+  console.log(`Clicked the 'Next' button. Count: ${count}`);
   if (count > 0) {
     sequence.push(count);
-    console.log(`Sequência após adicionar: ${sequence.join(", ")}`);
-    count = 0; // Zera a contagem
+    console.log(`Sequence after adding: ${sequence.join(", ")}`);
+    count = 0; // Reset count
     document.getElementById("counter").textContent = count;
   } else {
-    console.log("Contagem estava zerada. Não foi adicionada à sequência.");
+    console.log("Count was zero. Not added to the sequence.");
   }
   document.getElementById("sequence").textContent =
     translations[lang].sequenceLabel + " " + sequence.join(", ");
 
-  // Remover o foco do botão "Próxima" após o clique
+  // Remove focus from the "Next" button after clicking
   document.getElementById("nextButton").blur();
 }
 
-// Adiciona eventos para o clique no espaço e nos botões
+// Add event listener for space key press
 document.addEventListener("keydown", function (event) {
   if (event.key === " " || event.code === "Space") {
-    console.log("Espaço pressionado.");
+    console.log("Space key pressed.");
     incrementCount();
   }
 });
 
-// Adiciona eventos para os botões
+// Add event listeners for buttons
 document.getElementById("resetButton").addEventListener("click", resetCount);
 document.getElementById("nextButton").addEventListener("click", nextSequence);
 
-// Adiciona evento para o clique no botão redondo
+// Add event listener for the round button click
 document
   .getElementById("roundButton")
   .addEventListener("click", incrementCount);
 
-// Função para mudar o idioma
+// Function to remove focus from buttons after clicking
+function removeFocusAfterClick(button) {
+  button.blur(); // Remove focus from the button
+}
+
+// Add event listeners to all buttons to remove focus after clicking
+document.querySelectorAll("button").forEach((button) => {
+  button.addEventListener("click", () => removeFocusAfterClick(button));
+});
+
+// Function to change the language
 function changeLanguage(language) {
   lang = language;
   document.getElementById("title").textContent = translations[lang].title;
@@ -98,16 +108,16 @@ function changeLanguage(language) {
   document.getElementById("resetButton").textContent =
     translations[lang].resetButton;
 
-  // Atualiza o conteúdo do footer com a tradução
+  // Update the footer content with the translation
   document.getElementById("footer-message").textContent =
     translations[lang].footerMessage;
   document.getElementById("footer-coffee").textContent =
     translations[lang].footerCoffee;
   document.getElementById("guide-message").textContent =
-    translations[lang].guideMessage; // Atualiza o link "Como usar"
+    translations[lang].guideMessage; // Update the "How to use" link
 }
 
-// Aplicar idioma padrão ao carregar a página
+// Apply default language on page load
 window.onload = function () {
-  changeLanguage(lang); // Aplica a tradução ao carregar a página
+  changeLanguage(lang); // Apply translation on page load
 };
