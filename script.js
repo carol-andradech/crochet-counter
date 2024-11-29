@@ -102,7 +102,7 @@ function changeLanguage(language) {
   lang = language;
   document.getElementById("title").textContent = translations[lang].title;
   document.getElementById("sequence").textContent =
-    translations[lang].sequenceLabel + " ";
+    translations[lang].sequenceLabel + " " + sequence.join(", ");
   document.getElementById("nextButton").textContent =
     translations[lang].nextButton;
   document.getElementById("resetButton").textContent =
